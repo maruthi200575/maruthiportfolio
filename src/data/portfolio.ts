@@ -1,4 +1,4 @@
-import portrait from '@/assets/portrait.jpg.asset.json';
+import portrait from '@/assets/portrait-cutout.png.asset.json';
 
 export const profile = {
   name: 'M T Maruthi', title: 'Full Stack Developer', email: '', photo: portrait.url, resume: '',
