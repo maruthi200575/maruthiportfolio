@@ -53,16 +53,16 @@ function Index() {
   const roles = ['Full Stack Developer', 'Frontend Developer', 'AI Enthusiast', 'Problem Solver'];
   useEffect(() => {
     const saved = localStorage.getItem('maruthi-theme') || 'dark';
-    setTheme(saved); document.documentElement.dataset.theme = saved;
+    setTheme(saved); document.documentElement.dataset['theme'] = saved;
     const reduce = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
     const timer = reduce ? undefined : window.setInterval(() => setRole(v => (v+1)%4), 4000);
     const observer = new IntersectionObserver(entries => { for(const entry of entries) if(entry.isIntersecting) setActive(entry.target.id); }, { rootMargin:'-15% 0px -65% 0px' });
     navigation.forEach(n => { const element = document.getElementById(n.toLowerCase()); if(element) observer.observe(element); });
     const move = (e:MouseEvent) => { if(cursor.current && !reduce && window.matchMedia('(pointer: fine)').matches) { cursor.current.style.left = `${e.clientX}px`; cursor.current.style.top = `${e.clientY}px`; cursor.current.style.opacity = '.7'; } };
     window.addEventListener('mousemove',move);
-    return () => { window.clearInterval(timer); observer.disconnect(); window.removeEventListener('mousemove',move); delete document.documentElement.dataset.theme; };
+    return () => { window.clearInterval(timer); observer.disconnect(); window.removeEventListener('mousemove',move); delete document.documentElement.dataset['theme']; };
   }, []);
-  const toggleTheme = () => { const next = theme==='dark'?'light':'dark'; setTheme(next); document.documentElement.dataset.theme=next; localStorage.setItem('maruthi-theme',next); };
+  const toggleTheme = () => { const next = theme==='dark'?'light':'dark'; setTheme(next); document.documentElement.dataset['theme']=next; localStorage.setItem('maruthi-theme',next); };
   const resume = () => { if(profile.resume) window.open(profile.resume,'_blank','noopener,noreferrer'); else setNotice({title:'Resume coming soon',description:'Maruthi’s resume has not been uploaded yet. The download will be available once the real file is provided.'}); };
   const submitContact = (event:FormEvent<HTMLFormElement>) => {
     event.preventDefault(); const data = new FormData(event.currentTarget);

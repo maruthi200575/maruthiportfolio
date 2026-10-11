@@ -32,7 +32,7 @@ export const credentials = [
   ['Code Forker', 'Kaggle', 'Platform achievement'],
   ['AI Tools Workshop', 'Be10x', 'Workshop participation'],
   ['Campus Ambassador Certificate', 'TECHNGLOBAL PRIVATE LIMITED', 'Reported certificate'],
-].map(([title, issuer, type]) => ({ title, issuer, type, image: '', verification: '' }));
+].map(([title = '', issuer = '', type = '']) => ({ title, issuer, type, image: '', verification: '' }));
 export const services = [
   ['Frontend development', 'Responsive, interactive interfaces built with React and modern CSS.', 'Responsive web pages · React applications · Interactive interfaces'],
   ['Full stack development', 'Connecting thoughtful interfaces with server-side functionality and data.', 'Web applications · Frontend / backend integration · Database connectivity'],
