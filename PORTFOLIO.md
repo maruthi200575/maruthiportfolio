@@ -8,7 +8,7 @@ Install Bun, then run `bun install` and `bun run dev`. Open the address printed 
 
 All personal content and missing links are in `src/data/portfolio.ts`. Set `profile.email`, `photo`, `resume`, `github`, `linkedin`, and `kaggle` when the real information is available. Set project `repository`, `demo`, and verified `technologies` individually. Replace the cautious project detail text only after checking what is implemented. Add certificate images and verification URLs to credential entries; do not count memberships or platform badges as professional certifications.
 
-The current initials artwork is a symbolic monogram, not a photograph. Put a real photo URL in `profile.photo` to replace it. Use a genuine PDF URL in `profile.resume` to enable the resume button. The supplied screenshot was used as design reference, not as a portfolio asset.
+The home hero now shows your real portrait photo. `profile.photo` points at `src/assets/portrait-cutout.png.asset.json`, a background-removed version of the studio photo, placed over a soft accent ring with the lower edge dissolved into the page background. The original studio photo is stored at `src/assets/portrait.jpg.asset.json`; to use it instead, import that pointer in `src/data/portfolio.ts` and set `profile.photo` to its URL — it then appears with the same soft fade, and you can add a border radius if you prefer it inside a circle. The supplied screenshot was used as design reference, not as a portfolio asset.
 
 ## Contact delivery
 
@@ -16,8 +16,8 @@ The form validates required fields and email format. It does not claim successfu
 
 ## Publish
 
-Use Publish in Lovable when the content is ready. Verify the live address after publishing. No deployment address is assumed by the portfolio. Add real photo, resume, professional links, project repositories and certificate assets before sharing with recruiters.
+Use Publish in Lovable when the content is ready. Verify the live address after publishing. No deployment address is assumed by the portfolio. Add a resume, professional links, project repositories and certificate assets before sharing with recruiters.
 
 ## Presentation
 
-The portfolio uses one scrolling page with accessible section anchors, an initials-based illustration, category-filtered project cards, keyboard-accessible detail dialogs, a persisted light/dark preference, and reduced-motion handling. Theme colors and styling live in `src/styles.css`.
+The portfolio uses one scrolling page with accessible section anchors, your portrait photo in the hero, category-filtered project cards, keyboard-accessible detail dialogs, a persisted light/dark preference, and reduced-motion handling. Theme colors and styling live in `src/styles.css`.
