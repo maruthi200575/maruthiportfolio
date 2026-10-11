@@ -74,8 +74,10 @@
 .hero-meta { display:flex; align-items:center; gap:12px; margin-top:35px; font-family:var(--font-mono); font-size:10px; color:var(--muted-foreground); }
 .hero-meta svg { color:var(--primary); }
 .hero-art { position:relative; height:100%; min-width:0; display:flex; align-items:center; justify-content:center; }
-.monogram-image { width:610px; max-width:none; mix-blend-mode:lighten; flex-shrink:0; }
-[data-theme="light"] .monogram-image { mix-blend-mode:normal; border-radius:50%; width:470px; }
+.monogram-image { width:610px; max-width:none; flex-shrink:0; }
+.monogram-art { mix-blend-mode:lighten; }
+.portrait-image { width:clamp(260px,36vw,470px); border-radius:50%; object-fit:cover; object-position:center 30%; background:var(--secondary); border:1px solid var(--border); box-shadow:0 34px 90px -34px oklch(.05 0 0 / .75); }
+[data-theme="light"] .monogram-art { mix-blend-mode:normal; border-radius:50%; width:470px; }
 .art-label { position:absolute; padding:11px 14px; border:1px solid var(--border); background:var(--header-background); backdrop-filter:blur(12px); font-family:var(--font-mono); font-size:10px; display:flex; align-items:center; gap:8px; border-radius:6px; animation:float 7s ease-in-out infinite; }
 .art-label svg { color:var(--highlight); width:14px; height:14px; }
 .art-label-top { right:0; top:145px; transform:rotate(5deg); }
