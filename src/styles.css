@@ -79,7 +79,7 @@
 .portrait-stage { position:relative; width:clamp(260px,36vw,440px); flex-shrink:0; display:flex; align-items:flex-end; justify-content:center; }
 .portrait-stage::before { content:''; position:absolute; left:50%; top:31%; width:46%; aspect-ratio:1; transform:translate(-50%,-50%); border-radius:50%; border:1px solid color-mix(in oklab,var(--primary) 40%,transparent); background:radial-gradient(circle,color-mix(in oklab,var(--primary) 16%,transparent),transparent 68%); box-shadow:0 0 90px -10px color-mix(in oklab,var(--primary) 35%,transparent); }
 .portrait-image { position:relative; width:100%; height:auto; }
-.portrait-stage::after { content:''; position:absolute; left:0; right:0; bottom:0; height:26%; background:linear-gradient(to bottom,transparent,var(--background) 88%); pointer-events:none; }
+.portrait-stage::after { content:''; position:absolute; left:0; right:0; bottom:0; height:20%; background:linear-gradient(to bottom,transparent 25%,var(--background) 95%); pointer-events:none; }
 [data-theme="light"] .monogram-art { mix-blend-mode:normal; border-radius:50%; width:470px; }
 .art-label { position:absolute; padding:11px 14px; border:1px solid var(--border); background:var(--header-background); backdrop-filter:blur(12px); font-family:var(--font-mono); font-size:10px; display:flex; align-items:center; gap:8px; border-radius:6px; animation:float 7s ease-in-out infinite; }
 .art-label svg { color:var(--highlight); width:14px; height:14px; }
