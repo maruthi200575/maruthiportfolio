@@ -66,12 +66,15 @@ function Index() {
   const resume = () => { if(profile.resume) window.open(profile.resume,'_blank','noopener,noreferrer'); else setNotice({title:'Resume coming soon',description:'Maruthi’s resume has not been uploaded yet. The download will be available once the real file is provided.'}); };
   const openLinkedIn = () => { if(profile.linkedin) window.open(profile.linkedin,'_blank','noopener,noreferrer'); else setNotice({title:'LinkedIn profile coming soon',description:'Maruthi’s LinkedIn profile link has not been added yet. Once the real profile URL is provided, this button opens it in a new tab.'}); };
 
-  const submitContact = (event:FormEvent<HTMLFormElement>) => {
-    event.preventDefault(); const data = new FormData(event.currentTarget);
-    if(!String(data.get('name')).trim() || !String(data.get('subject')).trim() || !String(data.get('message')).trim()) { setContactStatus('Please complete every field with a name, subject and message.'); return; }
-    if(!profile.email) { setContactStatus('Your message has not been sent. Contact details and email delivery are not configured yet.'); return; }
-    const subject = encodeURIComponent(String(data.get('subject'))); const body = encodeURIComponent(`From: ${data.get('name')} (${data.get('email')})\n\n${data.get('message')}`);
-    window.location.href=`mailto:${profile.email}?subject=${subject}&body=${body}`; setContactStatus('Your email app has been opened with this message. It has not been sent automatically.');
+  const submitContact = async (event:FormEvent<HTMLFormElement>) => {
+    event.preventDefault(); const form = event.currentTarget; const data = new FormData(form);
+    const name = String(data.get('name')).trim(); const email = String(data.get('email')).trim();
+    const subject = String(data.get('subject')).trim(); const message = String(data.get('message')).trim();
+    if(!name || !email || !subject || !message) { setContactStatus('Please complete every field with a name, email, subject and message.'); return; }
+    setContactStatus('Sending…');
+    const { error } = await supabase.from('contact_messages').insert({ name, email, subject, message });
+    if(error) { setContactStatus('Something went wrong and your message was not sent. Please try again.'); return; }
+    form.reset(); setContactStatus('Message sent — thank you! I’ll get back to you soon.');
   };
   return <>
     <div className="cursor-point" ref={cursor} aria-hidden="true"/>
