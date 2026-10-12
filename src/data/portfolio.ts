@@ -1,7 +1,8 @@
 import portrait from '@/assets/portrait-cutout.png.asset.json';
+import resume from '@/assets/resume.pdf.asset.json';
 
 export const profile = {
-  name: 'M T Maruthi', title: 'Full Stack Developer', email: '', photo: portrait.url, resume: '',
+  name: 'M T Maruthi', title: 'Full Stack Developer', email: '', photo: portrait.url, resume: resume.url,
   github: '', linkedin: 'https://www.linkedin.com/in/m-t-maruthi-96856438b', kaggle: '',
   biography: "I'm M T Maruthi, a Computer Science and Engineering student passionate about full-stack web development and modern technologies. I enjoy building practical applications, developing user-friendly interfaces, and solving real-world problems through technology.",
 };
