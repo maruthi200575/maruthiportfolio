@@ -1,6 +1,6 @@
 import { createFileRoute } from '@tanstack/react-router';
 import { useEffect, useRef, useState, type FormEvent } from 'react';
-import { ArrowUpRight, ArrowDown, ArrowRight, Download, Sun, Moon, Menu, X, Code2, Terminal, MapPin, Sparkles, GraduationCap, Leaf, QrCode, CalendarDays, Globe2, Database, BrainCircuit, PanelsTopLeft, Server, Github, Linkedin, Award, Trophy, Tent, Briefcase, Laptop, Atom, Layers, GitBranch, FileText, Mail, Check, ChevronUp, Eye } from 'lucide-react';
+import { ArrowUpRight, ArrowDown, ArrowRight, Sun, Moon, Menu, X, Code2, Terminal, MapPin, Sparkles, GraduationCap, Leaf, QrCode, CalendarDays, Globe2, Database, BrainCircuit, PanelsTopLeft, Server, Github, Linkedin, Award, Trophy, Tent, Briefcase, Laptop, Atom, Layers, GitBranch, FileText, Mail, Check, ChevronUp, Eye } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import { Dialog, DialogContent, DialogTitle, DialogDescription } from '@/components/ui/dialog';
 import { SectionHeading } from '@/components/portfolio/section-heading';
