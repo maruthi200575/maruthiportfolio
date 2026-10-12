@@ -1,6 +1,6 @@
 import { createFileRoute } from '@tanstack/react-router';
 import { useEffect, useRef, useState, type FormEvent } from 'react';
-import { ArrowUpRight, ArrowDown, ArrowRight, Download, Sun, Moon, Menu, X, Code2, Terminal, MapPin, Sparkles, GraduationCap, Leaf, QrCode, CalendarDays, Globe2, Database, BrainCircuit, PanelsTopLeft, Server, Github, Linkedin, Award, Trophy, Tent, Briefcase, Laptop, Atom, Layers, GitBranch, FileText, Mail, Check, ChevronUp } from 'lucide-react';
+import { ArrowUpRight, ArrowDown, ArrowRight, Download, Sun, Moon, Menu, X, Code2, Terminal, MapPin, Sparkles, GraduationCap, Leaf, QrCode, CalendarDays, Globe2, Database, BrainCircuit, PanelsTopLeft, Server, Github, Linkedin, Award, Trophy, Tent, Briefcase, Laptop, Atom, Layers, GitBranch, FileText, Mail, Check, ChevronUp, Eye } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import { Dialog, DialogContent, DialogTitle, DialogDescription } from '@/components/ui/dialog';
 import { SectionHeading } from '@/components/portfolio/section-heading';
@@ -69,7 +69,7 @@ function Index() {
     return () => { window.clearInterval(timer); observer.disconnect(); window.removeEventListener('mousemove',move); delete document.documentElement.dataset['theme']; };
   }, []);
   const toggleTheme = () => { const next = theme==='dark'?'light':'dark'; setTheme(next); document.documentElement.dataset['theme']=next; localStorage.setItem('maruthi-theme',next); };
-  const resume = () => { if(profile.resume) window.open(profile.resume,'_blank','noopener,noreferrer'); else setNotice({title:'Resume coming soon',description:'Maruthi’s resume has not been uploaded yet. The download will be available once the real file is provided.'}); };
+  const resume = () => { if(profile.resume) window.open(profile.resume,'_blank','noopener,noreferrer'); else setNotice({title:'Resume coming soon',description:'Maruthi’s resume has not been uploaded yet. It will be available to view once the real file is provided.'}); };
   const openLinkedIn = () => { if(profile.linkedin) window.open(profile.linkedin,'_blank','noopener,noreferrer'); else setNotice({title:'LinkedIn profile coming soon',description:'Maruthi’s LinkedIn profile link has not been added yet. Once the real profile URL is provided, this button opens it in a new tab.'}); };
 
   const submitContact = async (event:FormEvent<HTMLFormElement>) => {
@@ -93,7 +93,7 @@ function Index() {
     <header className="site-header"><div className="container header-inner">
       <a href="#home" className="brand" aria-label="Maruthi home">maruthi<span className="brand-dot">.</span><span className="text-muted-foreground font-normal">dev</span></a>
       <nav className="desktop-nav" aria-label="Main navigation">{navigation.map(n=><a key={n} href={`#${n.toLowerCase()}`} className={`nav-link ${active===n.toLowerCase()?'active':''}`} aria-current={active===n.toLowerCase()?'location':undefined}>{n}</a>)}</nav>
-      <div className="header-actions"><Button variant="ghost" size="icon" onClick={toggleTheme} aria-label={`Switch to ${theme==='dark'?'light':'dark'} mode`} title={`Switch to ${theme==='dark'?'light':'dark'} mode`}>{theme==='dark'?<Sun/>:<Moon/>}</Button><Button variant="quiet" className="resume-button" onClick={resume}><Download/> Resume</Button><Button variant="ghost" size="icon" className="menu-toggle" aria-label={menuOpen?'Close navigation':'Open navigation'} aria-expanded={menuOpen} onClick={()=>setMenuOpen(!menuOpen)}>{menuOpen?<X/>:<Menu/>}</Button></div>
+      <div className="header-actions"><Button variant="ghost" size="icon" onClick={toggleTheme} aria-label={`Switch to ${theme==='dark'?'light':'dark'} mode`} title={`Switch to ${theme==='dark'?'light':'dark'} mode`}>{theme==='dark'?<Sun/>:<Moon/>}</Button><Button variant="quiet" className="resume-button" onClick={resume}><Eye/> View Resume</Button><Button variant="ghost" size="icon" className="menu-toggle" aria-label={menuOpen?'Close navigation':'Open navigation'} aria-expanded={menuOpen} onClick={()=>setMenuOpen(!menuOpen)}>{menuOpen?<X/>:<Menu/>}</Button></div>
     </div>{menuOpen && <nav className="mobile-nav" aria-label="Mobile navigation">{navigation.map(n=><a key={n} href={`#${n.toLowerCase()}`} onClick={()=>setMenuOpen(false)}>{n}</a>)}</nav>}</header>
     <main>
       <section id="home" className="hero"><div className="container"><div className="hero-inner">
