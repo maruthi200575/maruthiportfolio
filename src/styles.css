@@ -108,6 +108,9 @@
 .education-stats { display:grid; grid-template-columns:repeat(3,1fr); margin-top:22px; gap:10px; }
 .education-stats strong { display:block; font-family:var(--font-display); font-size:20px; }
 .education-stats span { font-family:var(--font-mono); font-size:9px; color:var(--muted-foreground); }
+.education-history { margin-top:24px; border-top:1px solid var(--border); padding-top:18px; display:grid; gap:16px; }
+.education-history h4 { font-size:13px; font-weight:600; margin-bottom:3px; }
+.education-history p { font-size:12px; color:var(--muted-foreground); line-height:1.7; }
 .filter-row { display:flex; gap:8px; flex-wrap:wrap; margin-bottom:27px; }
 .filter-row button { font-size:10px; height:32px; padding-inline:13px; }
 .project-grid { display:grid; grid-template-columns:repeat(3,minmax(0,1fr)); gap:22px; }
