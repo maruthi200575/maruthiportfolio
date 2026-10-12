@@ -6,6 +6,11 @@ import { Dialog, DialogContent, DialogTitle, DialogDescription } from '@/compone
 import { SectionHeading } from '@/components/portfolio/section-heading';
 import { profile, projects, skills, credentials, services, type Project } from '@/data/portfolio';
 import { supabase } from '@/integrations/supabase/client';
+import emailjs from '@emailjs/browser';
+
+const EMAILJS_SERVICE_ID = 'service_qrx68jk';
+const EMAILJS_TEMPLATE_ID = 'template_gbwzw3h';
+const EMAILJS_PUBLIC_KEY = 'VEaxySJWEqEV0IHtK';
 import monogram from '@/assets/monogram.jpg';
 
 export const Route = createFileRoute('/')({
@@ -73,9 +78,15 @@ function Index() {
     const subject = String(data.get('subject')).trim(); const message = String(data.get('message')).trim();
     if(!name || !email || !subject || !message) { setContactStatus('Please complete every field with a name, email, subject and message.'); return; }
     setContactStatus('Sending…');
-    const { error } = await supabase.from('contact_messages').insert({ name, email, subject, message });
-    if(error) { setContactStatus('Something went wrong and your message was not sent. Please try again.'); return; }
-    form.reset(); setContactStatus('Message sent — thank you! I’ll get back to you soon.');
+    try {
+      await emailjs.send(EMAILJS_SERVICE_ID, EMAILJS_TEMPLATE_ID, {
+        from_name: name, from_email: email, reply_to: email, subject, message,
+      }, EMAILJS_PUBLIC_KEY);
+      await supabase.from('contact_messages').insert({ name, email, subject, message });
+      form.reset(); setContactStatus('Message sent — thank you! I’ll get back to you soon.');
+    } catch {
+      setContactStatus('Something went wrong and your message was not sent. Please try again.');
+    }
   };
   return <>
     <div className="cursor-point" ref={cursor} aria-hidden="true"/>
