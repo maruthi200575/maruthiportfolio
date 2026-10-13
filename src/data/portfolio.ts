@@ -6,6 +6,13 @@ export const profile = {
   biography: "I'm M T Maruthi, a Computer Science and Engineering student passionate about full-stack web development and modern technologies. I enjoy building practical applications, developing user-friendly interfaces, and solving real-world problems through technology.",
 };
 
+export const aboutNote = 'Passionate in Researching-Technologies..';
+export const aboutDetails = [
+  { label: 'Languages', value: 'English, Kannada, Hindi, Telugu' },
+  { label: 'Interests', value: 'Web Development • AI/ML • Problem Solving • Innovation' },
+  { label: 'Mindset', value: 'Learn continuously, build creatively, and grow consistently.' },
+];
+
 export type Project = { title: string; category: string; description: string; detail: string; motif: string; repository: string; demo: string; technologies: string[] };
 export const projects: Project[] = [
   { title: 'Dharti Mitr AI', category: 'AI & Machine Learning', description: 'Bringing agricultural information and decision support into one thoughtful experience.', detail: 'An agricultural assistance platform intended to help farmers access information. Planned areas include crop recommendations, weather, soil health and market information. Operational features and the implemented technology stack are awaiting confirmation.', motif: 'agriculture', repository: '', demo: '', technologies: [] },
