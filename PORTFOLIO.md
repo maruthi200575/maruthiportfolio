@@ -12,7 +12,7 @@ The home hero now shows your real portrait photo. `profile.photo` points at `src
 
 ## Contact delivery
 
-The form validates required fields and email format. It does not claim successful delivery. Without a recipient it explains that sending is unavailable. With `profile.email` configured, it opens the visitor's email application with a draft. Automatic email delivery requires a real server-side email service, which is intentionally not connected yet. Never add private API keys to browser configuration.
+The form validates required fields and email format, then sends through EmailJS (Service ID, Template ID and Public Key in `src/routes/index.tsx`) and stores a private copy in the `contact_messages` table. It reports failure honestly instead of claiming delivery. Never add private API keys to browser configuration.
 
 ## Publish
 
@@ -20,4 +20,4 @@ Use Publish in Lovable when the content is ready. Verify the live address after 
 
 ## Presentation
 
-The portfolio uses one scrolling page with accessible section anchors, your portrait photo in the hero, category-filtered project cards, keyboard-accessible detail dialogs, a persisted light/dark preference, and reduced-motion handling. Theme colors and styling live in `src/styles.css`.
+The portfolio uses one scrolling page with accessible section anchors, your portrait photo in the hero, category-filtered project cards, keyboard-accessible detail dialogs, a persisted light/dark preference, and reduced-motion handling. The GitHub, LinkedIn and Kaggle links sit in the Let's Connect section directly below the location line, so there is no separate "Around the web" page section. Theme colors and styling live in `src/styles.css`.
