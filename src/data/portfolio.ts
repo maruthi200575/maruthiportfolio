@@ -13,6 +13,9 @@ export const aboutDetails = [
   { label: 'Mindset', value: 'Learn continuously, build creatively, and grow consistently.' },
 ];
 
+export const internships = ['Dhee Coding Lab pvt ltd', 'Besant Technologies', 'CodeAlpha', 'EdVyro', 'CODEC Technologies'];
+
+
 export type Project = { title: string; category: string; description: string; detail: string; motif: string; repository: string; demo: string; technologies: string[] };
 export const projects: Project[] = [
   { title: 'Dharti Mitr AI', category: 'AI & Machine Learning', description: 'Bringing agricultural information and decision support into one thoughtful experience.', detail: 'An agricultural assistance platform intended to help farmers access information. Planned areas include crop recommendations, weather, soil health and market information. Operational features and the implemented technology stack are awaiting confirmation.', motif: 'agriculture', repository: '', demo: '', technologies: [] },
