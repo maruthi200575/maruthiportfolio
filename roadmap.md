@@ -11,5 +11,6 @@
 - [x] Restyle the contact form's sending/sent/error reply as its own bordered status card with a coloured dot, placed lower under the notice line.
 - [x] Relabel the hero LinkedIn button as "Let's Build Our Network" with a blue-outlined treatment, keeping the same profile link.
 - [x] Add CODEC Technologies to the internship selections list (now driven by `internships` in the config file) with a dashed "+" card at the end for still-more opportunities.
+- [x] Show a "View Resume" button in the hero button row on phones (the header one stays hidden there), so the resume is reachable on small screens.
 
 User-supplied assets still pending: project repository/demo links, certificate images and verification.
