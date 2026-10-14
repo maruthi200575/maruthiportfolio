@@ -10,5 +10,6 @@
 - [x] Add a Languages / Interests / Mindset panel to the About section, below the skill chips, driven by aboutNote and aboutDetails in the config file.
 - [x] Restyle the contact form's sending/sent/error reply as its own bordered status card with a coloured dot, placed lower under the notice line.
 - [x] Relabel the hero LinkedIn button as "Let's Build Our Network" with a blue-outlined treatment, keeping the same profile link.
+- [x] Add CODEC Technologies to the internship selections list (now driven by `internships` in the config file) with a dashed "+" card at the end for still-more opportunities.
 
 User-supplied assets still pending: project repository/demo links, certificate images and verification.
