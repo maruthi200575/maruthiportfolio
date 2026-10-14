@@ -55,6 +55,7 @@ function Index() {
   const [project, setProject] = useState<Project | null>(null);
   const [notice, setNotice] = useState<{title:string; description:string} | null>(null);
   const [contactStatus, setContactStatus] = useState('');
+  const [contactKind, setContactKind] = useState<'sending'|'sent'|'error'>('sending');
   const cursor = useRef<HTMLDivElement>(null);
   const roles = ['Full Stack Developer', 'Frontend Developer', 'AI Enthusiast', 'Problem Solver'];
   useEffect(() => {
@@ -72,6 +73,7 @@ function Index() {
   const resume = () => { if(!profile.resume) { setNotice({title:'Resume coming soon',description:'Maruthi’s resume has not been uploaded yet. It will be available to view once the real file is provided.'}); return; } const viewer = window.open('about:blank','_blank'); fetch(profile.resume).then(response => { if(!response.ok) throw new Error('resume fetch failed'); return response.blob(); }).then(blob => { const url = URL.createObjectURL(new Blob([blob],{type:'application/pdf'})); if(viewer) viewer.location.replace(url); else window.open(url,'_blank','noopener,noreferrer'); }).catch(() => { if(viewer) viewer.location.replace(profile.resume!); else window.open(profile.resume!,'_blank','noopener,noreferrer'); }); };
   const openLinkedIn = () => { if(profile.linkedin) window.open(profile.linkedin,'_blank','noopener,noreferrer'); else setNotice({title:'LinkedIn profile coming soon',description:'Maruthi’s LinkedIn profile link has not been added yet. Once the real profile URL is provided, this button opens it in a new tab.'}); };
 
+  const say = (text:string, kind:'sending'|'sent'|'error') => { setContactKind(kind); setContactStatus(text); };
   const submitContact = async (event:FormEvent<HTMLFormElement>) => {
     event.preventDefault(); const form = event.currentTarget; const data = new FormData(form);
     const name = String(data.get('name')).trim(); const email = String(data.get('email')).trim();
