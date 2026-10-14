@@ -78,16 +78,16 @@ function Index() {
     event.preventDefault(); const form = event.currentTarget; const data = new FormData(form);
     const name = String(data.get('name')).trim(); const email = String(data.get('email')).trim();
     const subject = String(data.get('subject')).trim(); const message = String(data.get('message')).trim();
-    if(!name || !email || !subject || !message) { setContactStatus('Please complete every field with a name, email, subject and message.'); return; }
-    setContactStatus('Sending…');
+    if(!name || !email || !subject || !message) { say('A few details are still missing — name, email, subject and message.', 'error'); return; }
+    say('Sending your message across…', 'sending');
     try {
       await emailjs.send(EMAILJS_SERVICE_ID, EMAILJS_TEMPLATE_ID, {
         from_name: name, from_email: email, reply_to: email, subject, message,
       }, EMAILJS_PUBLIC_KEY);
       await supabase.from('contact_messages').insert({ name, email, subject, message });
-      form.reset(); setContactStatus('Message sent — thank you! I’ll get back to you soon.');
+      form.reset(); say('Received! Your message just landed in my inbox — thank you.', 'sent');
     } catch {
-      setContactStatus('Something went wrong and your message was not sent. Please try again.');
+      say('That one didn’t go through — your message wasn’t sent. Please try once more.', 'error');
     }
   };
   return <>
