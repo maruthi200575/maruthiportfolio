@@ -1,4 +1,3 @@
-// ============= Full file contents =============
 
 export const profile = {
   name: 'M T Maruthi', title: 'Full Stack Developer', email: '', photo: '/portrait-cutout.png', resume: '/maruthi_resume.pdf',
