@@ -12,4 +12,10 @@ export default defineConfig({
     // nitro/vite builds from this
     server: { entry: "server" },
   },
+  nitro: {
+    // Build for Netlify (SSR on Netlify Functions + static assets on the CDN).
+    // Lovable's own preview/publish builds override this with their Cloudflare preset,
+    // so this only applies when building outside Lovable (e.g. on Netlify's CI).
+    preset: "netlify",
+  },
 });

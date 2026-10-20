@@ -14,13 +14,17 @@ Continue developing this project in the [Lovable editor](https://lovable.dev/pro
 - **Stay in sync**: every change made in Lovable is committed straight to this repository.
 - **Full ownership**: this code is yours. Push to `main` on GitHub and your changes sync back into Lovable, ready for your next prompt.
 
-## Development
+## Deploying to Netlify
 
-Prefer working locally? You need Node.js and npm — [install with nvm](https://github.com/nvm-sh/nvm#installing-and-updating).
+The project builds for Netlify with Nitro's `netlify` preset (configured in `vite.config.ts`).
 
-```sh
-git clone <this-repository-url>
-cd <repository-name>
-npm i
-npm run dev
-```
+1. Push this repository to GitHub (it already syncs from Lovable).
+2. In Netlify, **Add new site → Import an existing project** and pick the repository.
+3. Netlify reads `netlify.toml` automatically — no settings to enter:
+   - build command: `npm run build`
+   - publish directory: `dist`
+   - SSR handler: `.netlify/functions-internal/server` (Netlify Functions v2)
+4. Deploy. Every push to `main` (including Lovable edits) will redeploy the site.
+
+No environment variables are required — the site talks to Lovable Cloud from the browser with its publishable key.
+

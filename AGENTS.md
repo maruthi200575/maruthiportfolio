@@ -13,3 +13,4 @@
 - Keep personal configuration, projects, skills and credentials in src/data/portfolio.ts, because missing assets and links must be replaceable without modifying presentation components.
 - Keep contact delivery unconfigured until a recipient and delivery service are supplied; validate locally and never simulate successful sending.
 - Define portfolio styling and theme roles centrally in src/styles.css and use shared Button and Dialog primitives for consistent accessible interactions.
+- Build for Netlify with `nitro: { preset: "netlify" }` in vite.config.ts and `netlify.toml` (publish `dist`, functions `.netlify/functions-internal`); the Lovable sandbox build keeps its own Cloudflare preset, so never pin the Netlify preset in a way that overrides the sandbox build.

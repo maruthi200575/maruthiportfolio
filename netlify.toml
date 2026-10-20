@@ -1,0 +1,12 @@
+# Netlify deployment configuration
+# The build uses Nitro's `netlify` preset (set in vite.config.ts):
+#   - static assets + prerendered files  -> dist/
+#   - SSR handler (Netlify Functions v2) -> .netlify/functions-internal/server
+
+[build]
+  command = "npm run build"
+  publish = "dist"
+  functions = ".netlify/functions-internal"
+
+[build.environment]
+  NODE_VERSION = "22"
