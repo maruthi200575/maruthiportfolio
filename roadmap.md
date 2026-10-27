@@ -13,5 +13,6 @@
 - [x] Add CODEC Technologies to the internship selections list (now driven by `internships` in the config file) with a dashed "+" card at the end for still-more opportunities.
 - [x] Show a "View Resume" button in the hero button row on phones (the header one stays hidden there), so the resume is reachable on small screens.
 - [x] Make the "Let's Build Our Network" button gently shake on a loop with a pulsing halo so it draws the eye (paused on hover/focus, off for reduced motion).
+- [x] Replace the site's resume with the updated upload (`M_T_Maruthi-Updated-Resume.pdf` → `public/maruthi_resume.pdf`); the View Resume button needed no change.
 
 User-supplied assets still pending: project repository/demo links, certificate images and verification.
