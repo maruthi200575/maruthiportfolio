@@ -94,7 +94,7 @@ function Index() {
   return <>
     <div className="cursor-point" ref={cursor} aria-hidden="true"/>
     <header className="site-header"><div className="container header-inner">
-      <a href="#home" className="brand" aria-label="Maruthi home">Maruthi<span className="brand-dot">.</span><span className="text-muted-foreground font-normal">Portfolio</span></a>
+      <a href="#home" className="brand" aria-label="M T Maruthi home">M T Maruthi</a>
       <nav className="desktop-nav" aria-label="Main navigation">{navigation.map(n=><a key={n} href={`#${n.toLowerCase()}`} className={`nav-link ${active===n.toLowerCase()?'active':''}`} aria-current={active===n.toLowerCase()?'location':undefined}>{n}</a>)}</nav>
       <div className="header-actions"><Button variant="ghost" size="icon" onClick={toggleTheme} aria-label={`Switch to ${theme==='dark'?'light':'dark'} mode`} title={`Switch to ${theme==='dark'?'light':'dark'} mode`}>{theme==='dark'?<Sun/>:<Moon/>}</Button><Button variant="quiet" className="resume-button" onClick={resume}><Eye/> View Resume</Button><Button variant="ghost" size="icon" className="menu-toggle" aria-label={menuOpen?'Close navigation':'Open navigation'} aria-expanded={menuOpen} onClick={()=>setMenuOpen(!menuOpen)}>{menuOpen?<X/>:<Menu/>}</Button></div>
     </div>{menuOpen && <nav className="mobile-nav" aria-label="Mobile navigation">{navigation.map(n=><a key={n} href={`#${n.toLowerCase()}`} onClick={()=>setMenuOpen(false)}>{n}</a>)}</nav>}</header>
